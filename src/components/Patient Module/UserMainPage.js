@@ -21,14 +21,33 @@ class UserMainPage extends React.Component {
     }
     return (
     <div>
-        <br/>
-        {/* <br/> */}
-        <h1><b><center>Welcome User</center></b></h1>
-        {/* <br/> */}
-        {/* <br/> */}
-        <hr/>
-        <Link to="/logout">Logout</Link>
-        <br/>
+        <div>
+                <nav
+          className="navbar navbar-dark bg-dark"
+          style={{
+            backgroundImage:
+              "linear-gradient(223.88deg, #848484 8.89%, #000000 94.31%)",
+          }}
+        >
+          <Link
+            to="/usermainpage"
+            className="navbar-brand"
+            style={{ color: "white", fontSize: "30px", textDecoration: "none" }}
+          >
+            User
+          </Link>
+          <form className="form-inline">
+            <Link
+              to="/logout"
+              className="nav-link text-black mr-5"
+              style={{ color: "white", fontSize: "25px" }}
+            >
+              Logout
+            </Link>
+          </form>
+        </nav>
+                </div>
+                <br /> <br />
         <div className="container">
             <center>
             <div className="row">

@@ -30,10 +30,35 @@ class ViewAppointmentName extends React.Component {
         }
         return (
         <div>
+            <div>
+                <nav
+          className="navbar navbar-dark bg-dark"
+          style={{
+            backgroundImage:
+              "linear-gradient(223.88deg, #848484 8.89%, #000000 94.31%)",
+          }}
+        >
+          <Link
+            to="/usermainpage"
+            className="navbar-brand"
+            style={{ color: "white", fontSize: "30px", textDecoration: "none" }}
+          >
+            User
+          </Link>
+          <form className="form-inline">
+            <Link
+              to="/logout"
+              className="nav-link text-black mr-5"
+              style={{ color: "white", fontSize: "25px" }}
+            >
+              Logout
+            </Link>
+          </form>
+        </nav>
+                </div>
             <form onSubmit={this.onSub}>
             <br />
             <h3 className = "text-center"> View Appointment Details</h3><br />
-            <Link to="/logout">Logout</Link>
            <pre>                                                    <b>Enter UserName to Search: </b><input type="text" name="userName" onChange={(e) => this.setState({ userName: e.target.value })} />            <input type="submit" value="Search" className="btn btn-success" /></pre>
             </form>  
             <br />        
