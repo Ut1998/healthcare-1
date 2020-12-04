@@ -96,7 +96,7 @@ class AdminPage extends React.Component {
                   />
                   <div class="card-body">
                     <div class="card-body">
-                      <Link class="btn btn-primary" to="/addtest" >Add Diagnostic Tests</Link>
+                      <Link class="btn btn-primary" to="/testmainpage" >Add Diagnostic Tests</Link>
                     </div>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ class AdminPage extends React.Component {
                   />
                   <div class="card-body">
                     <div class="card-body">
-                      <Link to="/viewtest" class="btn btn-primary">View Diagnostic Tests</Link>
+                      <Link to="/testmainpage" class="btn btn-primary">View Diagnostic Tests</Link>
                     </div>
                   </div>
                 </div>

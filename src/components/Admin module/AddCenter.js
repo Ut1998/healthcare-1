@@ -22,7 +22,8 @@ class AddCenter extends React.Component {
             loggedIn = false;
         }
         this.state ={
-            loggedIn
+            loggedIn,
+            initialState
         }
 
     this.state = initialState;
@@ -186,11 +187,8 @@ class AddCenter extends React.Component {
                   </button>
                   <button
                     className="btn btn-info ml-2"
-                    type="submit"
-                    onClick={this.saveCenter}
                     style={{ fontSize: "20px" }}
-                  >
-                    Add Test
+                  ><Link to="/addtest" style={{ color: "white", textDecoration: "none" }}>Add Test</Link>
                   </button>
                   <button
                     type="reset"

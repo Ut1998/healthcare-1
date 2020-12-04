@@ -74,14 +74,14 @@ class Login extends Component {
                 <div>
                     <header>
                         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                            <div className="navbar-brand">Health Care Management </div>
+                            <div className="navbar-brand"><h2>Health Care Management System</h2> </div>
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul className="navbar-nav ml-auto">
                                     <li className="nav-item active">
-                                        <Link className="nav-link " to="/">Home</Link>
-                                    </li>
+                                        <Link className="nav-link btn btn-info " to="/">Home</Link>
+                                    </li> &nbsp;
                                     <li class="nav-item active">
-                                        <Link className="nav-link " to="/signup">Sign Up</Link>
+                                        <Link className="nav-link btn btn-info" to="/signup">Sign Up</Link>
                                     </li>
                                 </ul>
                             </ div>
@@ -108,6 +108,9 @@ class Login extends Component {
                                             value={this.state.password} onChange={this.changePasswordHandler} required />
                                     </div>
                                     <input type="submit" className="btn btn-success btn-lg btn-block" value="Login" />
+                                    <div className="form-group">
+                                        <label> Don't have an account? <Link to="/signup" >Register Now</Link> </label>  
+                                    </div>
                                                     </form>
                             </div>
                         </div>

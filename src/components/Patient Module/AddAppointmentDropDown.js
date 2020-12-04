@@ -57,6 +57,32 @@ class AddAppointmentDropDown extends React.Component {
         }
         return (
             <div>
+                <div>
+                <nav
+          className="navbar navbar-dark bg-dark"
+          style={{
+            backgroundImage:
+              "linear-gradient(223.88deg, #848484 8.89%, #000000 94.31%)",
+          }}
+        >
+          <Link
+            to="/usermainpage"
+            className="navbar-brand"
+            style={{ color: "white", fontSize: "30px", textDecoration: "none" }}
+          >
+            User
+          </Link>
+          <form className="form-inline">
+            <Link
+              to="/logout"
+              className="nav-link text-black mr-5"
+              style={{ color: "white", fontSize: "25px" }}
+            >
+              Logout
+            </Link>
+          </form>
+        </nav>
+                </div>
             <br></br>
             <div className = "container">
                     <div className = "row">
@@ -101,9 +127,13 @@ class AddAppointmentDropDown extends React.Component {
                                             }
                                         </select>
                                     </div>
-                                    <pre>                  <input type="submit" value="Save" className="btn btn-success" />            <input type="reset" value="Cancel" className="btn btn-danger" /></pre>
+                                    <pre>                  <input type="submit" value="Save" className="btn btn-success" />            <button type="reset" className="btn btn-primary"  style={{ marginLeft: "10px" }}>
+                                    <Link to="/usermainpage" style={{ color: "white" }}>
+                                    Cancel
+                                    </Link>
+                            </button></pre>
                                 </form>
-                                <div className="alert alert-danger">{this.state.resp}</div>
+                                {/* <div className="alert alert-danger">{this.state.resp}</div> */}
                             </div>
                         </div>
                     </div>

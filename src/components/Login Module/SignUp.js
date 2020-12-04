@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class SignUp extends Component {
     constructor(props) {
@@ -34,6 +34,7 @@ class SignUp extends Component {
             resp = await axios.post("http://localhost:8080/health/patient/addpatient", user);
             console.log('user => ' + JSON.stringify(user));
             alert("user added successfully");
+            this.props.history.push("/login");
         } catch (error) {
             alert("Username already exists, please enter a different user name.");
         }             
@@ -73,14 +74,14 @@ class SignUp extends Component {
                 <div>
                 <header>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div className="navbar-brand">Health Care System </div>
+                    <div className="navbar-brand"><h2>Health Care Management System</h2></div>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item active">
-                                <Link className="nav-link " to="/">Home</Link>
-                            </li>
+                                <Link className="nav-link btn btn-info" to="/">Home</Link>
+                            </li> &nbsp;
                             <li class="nav-item active">
-                                <Link className="nav-link " to="/login">Login</Link>
+                                <Link className="nav-link btn btn-info" to="/login">Login</Link>
                             </li>
                         </ul>
                     </ div>
@@ -145,8 +146,10 @@ class SignUp extends Component {
                                         </div>
                                         <br /> <br />
                                         <input type="submit" className="btn btn-success btn-lg btn-block" value="Submit" />
+                                        <div className="form-group">
+                                        <label> Already have an account? <Link to="/login" >Login Now</Link> </label>  
+                                    </div>
                                     </form>
-                                    {/* <div className="alert alert-success">{this.state.resp}</div> */}
                                 </div>
                             </div>
                         </div>

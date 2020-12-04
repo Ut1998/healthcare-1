@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import TestService from '../../Services/TestService';
 import {withRouter} from 'react-router-dom';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 class AddTest extends Component {
     constructor(props)
     {
         super(props);
-        const tokenAdmin = localStorage.getItem("tokenAdmin");
-        let loggedIn= true;
-        if(tokenAdmin == null){
-            loggedIn = false;
-        }
         this.state={
-            loggedIn,
+           
             diagnosticTest:[]
                 // testName:'',
                 // testPrice:'',
@@ -35,6 +30,7 @@ class AddTest extends Component {
     changeTestNameHandler = (e) =>
     {
         this.setState({testName : e.target.value});
+        
     }
     changeTestPriceHandler = (e) =>
     {
@@ -62,7 +58,7 @@ class AddTest extends Component {
     }
     cancel(){
         //preventDefault();
-        this.props.history.push("/tests");
+        this.props.history.push("/adminpage");
     }
 
     componentDidMount(){
@@ -75,36 +71,34 @@ class AddTest extends Component {
     }
 
     render() {
-        if(this.state.loggedIn === false){
-            return <Redirect to="/login" />
-        }
+        
         return (
+            
             <div>
                 <div className="container">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
                         <h3 className="text=center"><center><b>Add Test</b></center></h3>
-                        <Link to="/logout">Logout</Link>
                         <div className="card-body">
                             <form>
                                 <div className="form-group">
                                     <label> Test Name : </label>
-                                    <input placeholder="Test Name" name="testName" className="form-control"
+                                    <input placeholder="Test Name" name="testName" className="form-control" required name="testName"
                                     value={this.state.testName} onChange={this.changeTestNameHandler}/>
                                 </div>
                                 <div className="form-group">
                                     <label> Test Price : </label>
-                                    <input placeholder="Test Price" name="testPrice" className="form-control"
+                                    <input placeholder="Test Price" name="testPrice" className="form-control" required name="testPrice"
                                     value={this.state.testPrice} onChange={this.changeTestPriceHandler}/>
                                 </div>
                                 <div className="form-group">
                                     <label> Normal Value : </label>
-                                    <input placeholder="Normal Value" name="normalValue" className="form-control"
+                                    <input placeholder="Normal Value" name="normalValue" className="form-control" required name="normalValue"
                                     value={this.state.normalValue} onChange={this.changeNormalValueHandler}/>
                                 </div>
                                 <div className="form-group">
                                     <label> Units : </label>
-                                    <input placeholder="Units" name="units" className="form-control"
+                                    <input placeholder="Units" name="units" className="form-control" required name="units"
                                     value={this.state.units} onChange={this.changeUnitsHandler}/>
                                 </div>
                                 {/* <div className="form-group">
@@ -142,7 +136,7 @@ class AddTest extends Component {
                                     <td>
                                             <label>Test center not found? Add now</label>
                                             </td><td>
-                                            <button type="reset" className="btn btn-primary"  style={{ marginLeft: "10px" }}>
+                                            <button className="btn btn-primary"  style={{ marginLeft: "10px" }}>
                                     <Link to="/addCenter" style={{ color: "white" }}>
                                     Add Test Center
                                     </Link>
@@ -158,7 +152,7 @@ class AddTest extends Component {
 
                                 <button className="btn btn-success" onClick={this.saveTest}>Save</button>
                                 {/* <button className="btn btn-danger" onClick={this.change.bind(this)} style={{margin:"10px"}}>Cancel</button> */}
-                                <button type="reset" className="btn btn-danger"  style={{ marginLeft: "10px" }}>
+                                <button className="btn btn-danger"  style={{ marginLeft: "10px" }}>
                                     <Link to="/adminpage" style={{ color: "white" }}>
                                     Cancel
                                     </Link>

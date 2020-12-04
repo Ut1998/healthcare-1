@@ -10,39 +10,23 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <nav class="navbar navbar-dark bg-dark">
-          <h1
-            class="navbar-brand"
-            style={{
-              fontFamily: "ARIAL",
-              fontWeight: "bold",
-              fontSize: 30,
-              width: "500px",
-              color: "white",
-              borderRadius: "15px",
-            }}
-          >
-            HealthCare Management System
-          </h1>
-          <form class="form-inline">
-            <button class="btn btn-primary mr-sm-2" type="submit">
-              <Link
-                to="/signup"
-                style={{ color: "white", fontSize: 20, textDecoration: "none" }}
-              >
-                SignUp
-              </Link>
-            </button>
-            <button class="btn btn-success my-2 my-sm-0" onClick={this.onClick}>
-              <Link
-                to="/login"
-                style={{ color: "white", fontSize: 20, textDecoration: "none" }}
-              >
-                Log In
-              </Link>
-            </button>
-          </form>
-        </nav>
+        <div>
+          <header>
+            <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+              <div className="navbar-brand"><h2>Health Care Management System</h2> </div>
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav ml-auto">
+                  <li className="nav-item active">
+                    <Link className="nav-link btn btn-info " to="/signup">Sign Up</Link>
+                  </li> &nbsp;
+                                    <li class="nav-item active">
+                    <Link className="nav-link btn btn-info" to="/login">Login</Link>
+                  </li>
+                </ul>
+              </ div>
+            </nav>
+          </header>
+        </div>
         {/* <img src={health3} height="650px" width="1550px" />
          */}
         <br />

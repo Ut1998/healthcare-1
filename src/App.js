@@ -17,6 +17,7 @@ import AdminPage from './components/Admin module/AdminPage';
 import AddCenter from './components/Admin module/AddCenter';
 import ListCenters from './components/Admin module/ListCenters';
 import UpdateCenter from './components/Admin module/UpdateCenter';
+import TestPage from './components/Admin module/TestPage';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/usermainpage" component={UserMainPage} />
           <Route path="/addappointment" component={AddAppointmentDropDown} />
           <Route path="/viewappointment" component={ViewAppointmentName} />
+          <Route path="/testmainpage" component={TestPage} />
        </Switch>
     </div>
   );

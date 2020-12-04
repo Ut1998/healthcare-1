@@ -33,7 +33,7 @@ class UserMainPage extends React.Component {
             <center>
             <div className="row">
                         <div className="col-sm">
-                            <div class="card" style={{width: "30rem"}}>
+                            <div class="card" style={{width: "20rem"}}>
                                 <img src="https://www.globetown.org/website/F84123/files/appointment_1.jpg" 
                                 class="card-img-top" alt="..."/>
                                 <div class="card-body">
@@ -42,6 +42,18 @@ class UserMainPage extends React.Component {
                                     Select the day, time and location you would like to visit. Plan to arrive 10 minutes early. Bring all the necessary documents to
                                     get tested.</p>
                                     <Link to="/addappointment" class="btn btn-primary">Make Appointment</Link>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className="col-sm">
+                            <div class="card" style={{width: "20rem"}}>
+                                <img src="https://www.globetown.org/website/F84123/files/appointment_1.jpg" 
+                                class="card-img-top" alt="..."/>
+                                <div class="card-body">
+                                    <h5 class="card-title">View my Appointments</h5>
+                                    <p class="card-text">View your scheduled appointments</p>
+                                    <Link to="viewappointment" class="btn btn-primary">View My Appointment</Link>
                                 </div>
                             </div>
 
