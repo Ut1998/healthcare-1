@@ -18,7 +18,7 @@ class AddAppointmentDropDown extends React.Component {
             symptoms: '',
             diagnosticTestId: [],
             selectedTest: 0,
-            username: '',
+            // username: '',
           //  diagnosticCenterId: 0,
           diagnosticCenterId: [],
           selectedCenter :0,
@@ -30,21 +30,28 @@ class AddAppointmentDropDown extends React.Component {
     
     componentDidMount() {
         Axios.get('http://localhost:8080/health/appointment/retrievealltest').then(j => {
-            this.setState({ diagnosticTestId: j.data })
+            this.setState({ diagnosticTestId: j.data });
         });
+    }
 
-        var url1 ='http://localhost:8080/health/appointment/retrievecenter/';
+    getSelectedTests = (e) => {
+        let val = e.target.value;
+        var url1 ='http://localhost:8080/health/appointment/retrieveallcenter/' + val;
         console.log(url1); 
         Axios.get(url1).then(k => {
-                    this.setState({ diagnosticCenterId: k.data })
+                    this.setState({ selectedTest: val, diagnosticCenterId: k.data });
                 });
 
     }
 
+    getSelectedCenter = (e) => {
+        let val = e.target.value;
+        this.setState({ selectedCenter: val})
+    }
  
     onSub(e) {
         e.preventDefault();
-        var url='http://localhost:8080/health/appointment/addAppointmentbydropdown/' + this.state.appointmentDate + '/' + this.state.approvalStatus + '/' + this.state.diagnosis + '/' + this.state.symptoms + '/' + this.state.selectedTest + '/' + this.state.username + '/' + this.state.selectedCenter;
+        var url='http://localhost:8080/health/appointment/addAppointmentbydropdown/' + this.state.appointmentDate + '/' + this.state.approvalStatus + '/' + this.state.diagnosis + '/' + this.state.symptoms + '/' + this.state.selectedTest + '/' + this.state.selectedCenter;
         console.log(url);
         Axios.post(url).then(j => this.setState({ resp: JSON.stringify(j.data) }));
         alert("Appointment added Successfully");
@@ -90,11 +97,11 @@ class AddAppointmentDropDown extends React.Component {
                             <h3 className="text-center">Add Appointment</h3>
                             <div className = "card-body">
                                 <form onSubmit={this.onSub}>
-                                    <div className = "form-group">
+                                    {/* <div className = "form-group">
                                         <label> User Name </label>
                                         <input type='text' placeholder="Enter User Name" name="username" className="form-control" 
                                             onChange={(e) => this.setState({ username: e.target.value})}/>
-                                    </div>
+                                    </div> */}
                                     <div className = "form-group">
                                         <label> Appointment Date </label>
                                         <input type="date" name="appointmentDate" className="form-control" 
@@ -109,18 +116,20 @@ class AddAppointmentDropDown extends React.Component {
                                         <input placeholder="Enter Symptom" type="text" name="symptoms" onChange={(e) => this.setState({ symptoms: e.target.value })}  className="form-control" />
                                     </div>
                                     <div className = "form-group">
-                                        <label> Diagnostic Test Name </label>
-                                        <select value={this.state.selectedTest}
-                                        onChange={(e) => this.setState({selectedTest: e.target.value})} className="form-control">
+                                    <label> Diagnostic Test Name </label>
+                                        <select
+                                        onChange={this.getSelectedTests} className="form-control">
+                                        <option>Select Test</option>
                                         {
                                             this.state.diagnosticTestId.map(n => <option key={n.id} value={n.id}>{n.testName}</option>)
                                         }
                                         </select>
                                     </div>
                                     <div className = "form-group">
-                                        <label> Diagnostic Center Name </label>
-                                        <select value={this.state.selectedCenter}
-                                            onChange={(e) => this.setState({selectedCenter: e.target.value})} className="form-control">
+                                    <label> Diagnostic Center Name </label>
+                                        <select
+                                            onChange={this.getSelectedCenter} className="form-control">
+                                            <option>Select Center</option>
                                             {
                                                 this.state.diagnosticCenterId.map(m => <option key={m.centerId} value={m.centerId}>{m.name}</option>)
                                             }

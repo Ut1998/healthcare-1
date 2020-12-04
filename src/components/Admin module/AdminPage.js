@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-import { Link,Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class AdminPage extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     const tokenAdmin = localStorage.getItem("tokenAdmin");
-    let loggedIn= true;
-    if(tokenAdmin == null){
-        loggedIn = false;
+    let loggedIn = true;
+    if (tokenAdmin == null) {
+      loggedIn = false;
     }
-    this.state ={
-        loggedIn
-    }
-}
+    this.state = {
+      loggedIn,
+    };
+  }
 
   render() {
-    if(this.state.loggedIn === false){
-      return <Redirect to="/login" />
-  }
+    if (this.state.loggedIn === false) {
+      return <Redirect to="/login" />;
+    }
     return (
       <div
         style={{
@@ -89,6 +89,23 @@ class AdminPage extends React.Component {
               <div className="col-sm-4">
                 <div class="card" style={{ width: "18rem" }}>
                   <img
+                    src="https://th.bing.com/th/id/OIP.zitOMmmOeGRTnFgAfKtavQHaCu?w=330&h=128&c=7&o=5&dpr=1.25&pid=1.7"
+                    class="card-img-top"
+                    alt="..."
+                    height="200px"
+                  />
+                  <div class="card-body">
+                    <div class="card-body">
+                      <Link to="/location" class="btn btn-primary">
+                        View Centers By location
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-sm-4 my-4">
+                <div class="card" style={{ width: "18rem" }}>
+                  <img
                     src="https://th.bing.com/th/id/OIP.kwRLgRPxwcK0tfHeuWkBNwHaEQ?w=270&h=180&c=7&o=5&dpr=1.25&pid=1.7"
                     class="card-img-top"
                     alt="..."
@@ -96,12 +113,14 @@ class AdminPage extends React.Component {
                   />
                   <div class="card-body">
                     <div class="card-body">
-                      <Link class="btn btn-primary" to="/testmainpage" >Add Diagnostic Tests</Link>
+                      <Link class="btn btn-primary" to="/addtest">
+                        Add Diagnostic Tests
+                      </Link>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-sm-4 mt-3" style={{ height: "30rem" }}>
+              <div className="col-sm-4 my-4">
                 <div class="card" style={{ width: "18rem" }}>
                   <img
                     src="https://th.bing.com/th/id/OIP.CvJO4bNgqoGHkEWAGX6GqAHaFj?w=215&h=180&c=7&o=5&dpr=1.25&pid=1.7"
@@ -111,12 +130,14 @@ class AdminPage extends React.Component {
                   />
                   <div class="card-body">
                     <div class="card-body">
-                      <Link to="/testmainpage" class="btn btn-primary">View Diagnostic Tests</Link>
+                      <Link to="/viewtest" class="btn btn-primary">
+                        View Diagnostic Tests
+                      </Link>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-sm-4 mt-3" style={{ height: "30rem" }}>
+              <div className="col-sm-4 my-4">
                 <div class="card" style={{ width: "18rem" }}>
                   <img
                     src="https://th.bing.com/th/id/OIP.fdFuUs54QTNx_5dka-4TAAHaDw?w=302&h=177&c=7&o=5&dpr=1.25&pid=1.7"
@@ -126,10 +147,30 @@ class AdminPage extends React.Component {
                   />
                   <div class="card-body">
                     <div class="card-body">
-                      <Link to="/viewallappointment" class="btn btn-primary">View Appointments</Link>
+                      <Link to="/viewallappointment" class="btn btn-primary">
+                        View Appointments
+                      </Link>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div className="col-sm-4 my-4">
+                <div class="card" style={{ width: "18rem" }}>
+                  <img
+                    src="https://th.bing.com/th/id/OIP.fdFuUs54QTNx_5dka-4TAAHaDw?w=302&h=177&c=7&o=5&dpr=1.25&pid=1.7"
+                    class="card-img-top"
+                    alt="..."
+                    height="200px"
+                  />
+                  <div class="card-body">
+                    <div class="card-body">
+                      <Link to="/viewappointment" class="btn btn-primary">
+                        View Appointment By Username
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                
               </div>
             </div>
           </div>

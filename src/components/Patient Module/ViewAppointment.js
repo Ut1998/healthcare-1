@@ -2,7 +2,7 @@ import Axios from 'axios';
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
  
-class ViewAppointmentName extends React.Component {
+class ViewAppointment extends React.Component {
     constructor(props) {
         super(props);
         const tokenPatient = localStorage.getItem("tokenPatient");
@@ -12,17 +12,22 @@ class ViewAppointmentName extends React.Component {
         }
         this.state = {
             loggedInAsPatient,
-            userName: '',
+            // userName: '',
             arr: []
         }
-        this.onSub = this.onSub.bind(this);
+        // this.onSub = this.onSub.bind(this);
     }
  
-    onSub(e) {
-        e.preventDefault();
-        var url='http://localhost:8080/health/appointment/retrieveappointmentpatientName/' + this.state.userName;
+    // onSub(e) {
+    //     e.preventDefault();
+    //     var url='http://localhost:8080/health/appointment/retrieveappointmentpatientName';
+    //     Axios.get(url).then(j => this.setState({ arr: j.data }));
+    //     }
+
+    componentDidMount() {
+        var url='http://localhost:8080/health/appointment/retrieveappointmentbysessionusername';
         Axios.get(url).then(j => this.setState({ arr: j.data }));
-        }
+  }
     
     render() {
         if(this.state.loggedInAsPatient === false){
@@ -56,11 +61,13 @@ class ViewAppointmentName extends React.Component {
           </form>
         </nav>
                 </div>
-            <form onSubmit={this.onSub}>
+                <br />
+            <h3 className = "text-center"> Your Appointment Details</h3><br />
+            {/* <form onSubmit={this.onSub}>
             <br />
             <h3 className = "text-center"> View Appointment Details</h3><br />
            <pre>                                                    <b>Enter UserName to Search: </b><input type="text" name="userName" onChange={(e) => this.setState({ userName: e.target.value })} />            <input type="submit" value="Search" className="btn btn-success" /></pre>
-            </form>  
+            </form>   */}
             <br />        
             <table className="table table-bordered">
                 <tr><th>Appointment Id</th><th>Patient UserName</th><th>Appointment Date</th><th>Diagnosis</th><th>Symptoms</th><th>Diagnostic Test Name</th><th>Diagnostic Center Name</th></tr>
@@ -74,4 +81,4 @@ class ViewAppointmentName extends React.Component {
  
 }
  
-export default ViewAppointmentName; //call TestCompA in App.js
+export default ViewAppointment; //call TestCompA in App.js

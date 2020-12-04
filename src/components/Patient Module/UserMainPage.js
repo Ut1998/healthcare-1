@@ -71,8 +71,8 @@ class UserMainPage extends React.Component {
                                 class="card-img-top" alt="..."/>
                                 <div class="card-body">
                                     <h5 class="card-title">View my Appointments</h5>
-                                    <p class="card-text">View your scheduled appointments</p>
-                                    <Link to="viewappointment" class="btn btn-primary">View My Appointment</Link>
+                                    <p class="card-text">You can easily view your scheduled appointments by simply clicking the button below.</p>
+                                    <Link to="/viewmyappoinment" class="btn btn-primary">View My Appointment</Link>
                                 </div>
                             </div>
 

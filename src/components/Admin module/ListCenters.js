@@ -65,13 +65,6 @@ class ListCenters extends React.Component {
             Admin
           </Link>
           <form className="form-inline">
-            <input
-              class="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              onChange={this.editSearch}
-            />
             <Link
               to="/addcenter"
               className="nav-link text-black mr-5"
@@ -110,12 +103,6 @@ class ListCenters extends React.Component {
                 <td>{center.contactEmail}</td>
                 <td>{center.servicesOffered}</td>
                 <td>
-                  <button
-                    onClick={() => this.updateCenter(center.centerId)}
-                    className="btn btn-info"
-                  >
-                    Update
-                  </button>
                   <button
                     onClick={() => this.deleteCenter(center.centerId)}
                     className="btn btn-danger ml-2"
